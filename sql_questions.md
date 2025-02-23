@@ -5,7 +5,7 @@
 - c) select b.name from buyer b join invoice i on b.id = i.buyer_id; 
 - d) select distinct b.name from buyer b left join invoice i on b.id = i.buyer_id;
 
-Answer:
+Answer: a
 
 
 ### 2. Which SQL statement returns the department number with the maximum salary given to any employee? 
@@ -14,7 +14,10 @@ Answer:
 - c) select department_id, max(salary) from employees group by department_id; 
 - d) select max(salary) from employees;
 
-Answer: 
+Answer: "c" is the closest, but it would show the max salary for each department, but not the maximum out of all the employees
+If we wanted to see which department has the highest paid employee out of everyone, we would need a statement like:
+
+`SELECT department_id FROM employees WHERE salary = (SELECT MAX(salary) FROM employees);`
 
 
 ### 3. What does the below query do:
@@ -33,7 +36,7 @@ from invoices inv;
 - c) Updates all invoices to 'Rejected' 
 - d) Throws exception
 
-Answer:
+Answer: "b", if 'status_id' is a string data type, otherwise "d"
 
 
 ### 4. Which statement below is correct to insert ‘Baker’ as the lastname in the persons table?
@@ -42,7 +45,7 @@ Answer:
 - c) Insert into persons (lastname) values ('Baker'); 
 - d) Insert ('Baker') into persons (lastname);
 
-Answer:
+Answer: c
 
 
 ### 5. What is the output of the below query?
@@ -55,7 +58,7 @@ Oracle: select substr('123456789', instr('abcabcabc', 'b'), 4) from dual;
 - c) 1234 
 - d) 456789
 
-Answer: 
+Answer: b
 
 
 ### 6. A table my_numbers has 6 number values: 1, 2, null, 1, 1, null. 
@@ -65,7 +68,7 @@ Predict the output of the below query: select count(num) from my_numbers
 - c) 3 
 - d) Throws exception because count function does not work with null value
 
-Answer:
+Answer: b
 
 
 
